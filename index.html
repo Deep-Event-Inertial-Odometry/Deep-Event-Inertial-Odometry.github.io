@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Personal Blog of Kwan Wai-Pang">
+  <meta name="keywords" content="SLAM, Event Camera, Robotics">
+
+  <!-- 确保您已经设置了视口的meta标签用于自适应屏幕大小的 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <title>HKU-ArcLab | DEIO</title> -->
+  <title>DEIO</title>
+  <meta name="author" content="Kwan Wai-Pang " />
+
+  <!-- OpenGraph 用于更新页面-->
+  <meta property="og:site_name" content="HKU-ArcLab | DEIO" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="HKU-ArcLab | DEIO" />
+  <meta property="og:description" content="Welcome to DEIO 😊" />
+  <!-- <meta property="og:image" content="https://kwanwaipang.github.io/Poster_files/hku_logo.jpg" /> -->
+
+  <meta property="og:locale" content="en" />
+
+  <meta name="google-site-verification" content="Jtxa1xy6N3_2RjVVFrZgXjPZ0AHklxJXQ1eQ6QXNWr8" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R1QX9D95NS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-R1QX9D95NS');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="https://kwanwaipang.github.io/DEIO/static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://kwanwaipang.github.io/DEIO/static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="https://kwanwaipang.github.io/DEIO/static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://kwanwaipang.github.io/DEIO/static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://kwanwaipang.github.io/DEIO/static/css/index.css">
+  <!-- <link rel="icon" href="https://kwanwaipang.github.io/Poster_files/hku_logo.jpg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://kwanwaipang.github.io/DEIO/static/js/fontawesome.all.min.js"></script>
+  <script src="https://kwanwaipang.github.io/DEIO/static/js/bulma-carousel.min.js"></script>
+  <script src="https://kwanwaipang.github.io/DEIO/static/js/bulma-slider.min.js"></script>
+  <script src="https://kwanwaipang.github.io/DEIO/static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <!-- <div class="navbar-dropdown">
+          
+          <a class="navbar-item" href="https://kwanwaipang.github.io/Mono-EIO">
+            Mono-EIO
+          </a>
+
+          <a class="navbar-item" href="https://kwanwaipang.github.io/PL-EVIO">
+            PL-EVIO
+          </a>
+
+          <a class="navbar-item" href="https://kwanwaipang.github.io/ESVIO">
+            ESVIO
+          </a>
+
+
+          <a class="navbar-item" href="https://kwanwaipang.github.io/EVI-SAM">
+            EVI-SAM
+          </a>
+
+          <a class="navbar-item" href="https://kwanwaipang.github.io/DEIO">
+            DEIO
+          </a>
+
+          <a class="navbar-item" href="https://arclab-hku.github.io/SuperEIO">
+            SuperEIO
+          </a>
+
+          <a class="navbar-item" target="_blank" href="https://arclab-hku.github.io/ecmd/">
+            ECMD Dataset
+          </a>
+
+          <a class="navbar-item" target="_blank" href="https://github.com/arclab-hku/Event_based_VO-VIO-SLAM">
+            HKU Dataset
+          </a>
+
+        </div> -->
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DEIO: Deep Event Inertial Odometry</h1>
+
+          <!-- 作者 -->
+          <!-- <div class="is-size-5 publication-authors">
+
+            <span class="author-block">
+              <a href="https://kwanwaipang.github.io/" target="_blank">Weipeng Guan</a><sup>1*</sup>,
+            </span>
+
+
+            <span class="author-block">
+              <a href="https://github.com/zerolfl" target="_blank">Fuling Lin</a><sup>1*</sup>,
+            </span>
+
+
+            <span class="author-block">
+              <a href="https://github.com/cpymaple" target="_blank">Peiyu Chen</a><sup>1</sup>,
+            </span>
+
+            <span class="author-block">
+              <a href="https://arclab.hku.hk/PengLu.html" target="_blank">Peng Lu</a><sup>1</sup>
+            </span>
+            
+          </div> -->
+          
+          <!-- 单位 -->
+          <!-- <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>The University of Hong Kong</span>
+            <br>
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+          </div> -->
+
+          <!-- 各种link -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=" "
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=" "
+                   target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=" "
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code(Coming soon)</span>
+                  </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item item-boxes_6dof">
+          <video poster="" id="boxes_6dof" autoplay controls muted loop playsinline height="100%">
+            <source src="https://kwanwaipang.github.io/DEIO/static/video/deio_fpv.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+        <div class="item item-boxes_6dof">
+          <video poster="" id="boxes_6dof" autoplay controls muted loop playsinline height="100%">
+            <source src="https://kwanwaipang.github.io/DEIO/static/video/boxes_6dof.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-dynamic_6dof">
+          <video poster="" id="dynamic_6dof" autoplay controls muted loop playsinline height="100%">
+            <source src="https://kwanwaipang.github.io/DEIO/static/video/dynamic_6dof.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-boxes_6dof">
+          <video poster="" id="boxes_6dof" autoplay controls muted loop playsinline height="100%">
+            <source src="https://kwanwaipang.github.io/DEIO/static/video/DEIO_dark_flying.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-deio_ecmd">
+          <video poster="" id="deio_ecmd" autoplay controls muted loop playsinline height="100%">
+            <source src="https://kwanwaipang.github.io/DEIO/static/video/Vicon_dark1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-deio_ecmd">
+          <video poster="" id="deio_ecmd" autoplay controls muted loop playsinline height="100%">
+            <source src="https://kwanwaipang.github.io/DEIO/static/video/deio_ecmd.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        
+
+        <div class="item item-HKU_agg_small_flip">
+          <video poster="" id="HKU_agg_small_flip" autoplay controls muted loop playsinline height="100%">
+            <source src="https://kwanwaipang.github.io/DEIO/static/video/HKU_agg_small_flip.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-HKU_agg_small_flip">
+          <video poster="" id="HKU_agg_small_flip" autoplay controls muted loop playsinline height="100%">
+            <source src="https://kwanwaipang.github.io/DEIO/static/video/HKU_agg_tran.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <div align="center" style="
+          position: relative; 
+          width: 100%; 
+          height: 450px;
+          margin: 0 auto;
+          border-radius: 15px;
+          background: url('https://kwanwaipang.github.io/File/Representative_works/loading-icon.gif') center/contain no-repeat;
+          ">
+          <iframe width="100%" height="100%"
+            src="//player.bilibili.com/player.html?isOutside=true&aid=114385062199300&bvid=BV1Y5L4zQEn6&cid=29562110953&p=1" 
+            title="Bilibili video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen  style="opacity: 0; transition: opacity 0.5s; border-radius: 15px;" onload="this.style.opacity='1'"
+          ></iframe>
+        </div>
+
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+        Event cameras show great potential for visual odometry (VO) in handling challenging situations, such as fast motion and high dynamic range. 
+        Despite this promise, the sparse and motion-dependent characteristics of event data continue to limit the performance of feature-based or direct-based data association methods in practical applications. 
+        To address these limitations, we propose Deep Event Inertial Odometry (DEIO), the first monocular learning-based event-inertial framework, which combines a learning-based method with traditional nonlinear graph-based optimization. 
+        Specifically, an event-based recurrent network is adopted to provide accurate and sparse associations of event patches over time.
+        DEIO further integrates it with the IMU to recover up-to-scale pose and provide robust state estimation.
+        The Hessian information derived from the learned differentiable bundle adjustment (DBA) is utilized to optimize the co-visibility factor graph, which tightly incorporates event patch correspondences and IMU pre-integration within a keyframe-based sliding window.
+        Comprehensive validations demonstrate that DEIO achieves superior performance on <strong>10</strong> challenging public benchmarks compared with more than <strong>20</strong> state-of-the-art methods.  
+        </div>
+
+        <!-- 首页图 -->
+        <img src="https://kwanwaipang.github.io/DEIO/static/img/cover_figure.png"
+        class="interpolation-image"
+        alt="The Cover Figure"/>
+
+        <!-- <div class="content has-text-justified">
+        <h2 class="title is-3">Contributions</h2>
+        We design the learning-optimization-combined framework that tightly-coupled integrate trainable event-based differentiable bundle adjustment (e-DBA) with IMU pre-integration in a patch-based co-visibility factor graph that employs keyframe-based sliding window optimization.
+        <br> The framework is also designed to be easily plug-and-play, with <strong>DEIO</strong> for event-IMU modalities and <strong>DVIO<sup>†</sup></strong> for image-IMU modalities.
+        <p><br></p>
+        <div class="columns is-multiline">
+          <div class="column is-half">
+            <img src="https://kwanwaipang.github.io/DEIO/static/img/DEIO_estimated_trajectories.png" class="fixed-size-image" />
+          </div>
+          <div class="column is-half">
+            <img src="https://kwanwaipang.github.io/DEIO/static/img/DVIO_estimated_trajectories.png" class="fixed-size-image" />
+          </div>
+        </div> -->
+        
+        <h2 class="title is-3">Evaluation in Challenging Scenarios</h2>
+        <div align="center">
+          <table style="border: none; background-color: transparent;">
+            <tr align="center">
+              <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+                  <video playsinline autoplay loop muted src="https://kwanwaipang.github.io/DEIO/static/video/deio_fpv.mp4" poster="https://kwanwaipang.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="100%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+              </td>
+              <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+                <video playsinline autoplay loop muted src="https://kwanwaipang.github.io/DEIO/static/video/DEIO_dark_flying.mp4" poster="https://kwanwaipang.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="100%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+              </td>
+            </tr>
+            <tr align="center">
+              <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+                  <video playsinline autoplay loop muted src="https://kwanwaipang.github.io/DEIO/static/video/dynamic_6dof.mp4" poster="https://kwanwaipang.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="100%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+              </td>
+              <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+                <video playsinline autoplay loop muted src="https://kwanwaipang.github.io/DEIO/static/video/boxes_6dof.mp4" poster="https://kwanwaipang.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="100%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+              </td>
+            </tr>
+            <tr align="center">
+              <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+                  <video playsinline autoplay loop muted src="https://kwanwaipang.github.io/DEIO/static/video/HKU_agg_small_flip.mp4" poster="https://kwanwaipang.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="100%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+              </td>
+              <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+                <video playsinline autoplay loop muted src="https://kwanwaipang.github.io/DEIO/static/video/HKU_agg_tran.mp4" poster="https://kwanwaipang.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="100%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+              </td>
+            </tr>
+            <tr align="center">
+              <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+                  <video playsinline autoplay loop muted src="https://kwanwaipang.github.io/DEIO/static/video/Vicon_dark1.mp4" poster="https://kwanwaipang.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="100%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+              </td>
+              <td style="width: 50%; border: none; padding: 0.01; background-color: transparent; vertical-align: middle;">
+                <video playsinline autoplay loop muted src="https://kwanwaipang.github.io/DEIO/static/video/deio_ecmd.mp4" poster="https://kwanwaipang.github.io/File/Representative_works/loading-icon.gif" alt="sym" width="100%" style="padding-top:0px;padding-bottom:0px;border-radius:15px;"></video>
+              </td>
+            </tr>
+          </table>
+          <figcaption>
+          </figcaption>
+        </div>
+
+        <div class="content has-text-justified">
+        <h2 class="title is-3">Evaluation in Dark Flighting and Driving Scenarios</h2>
+        We evaluate the performance of our DEIO in night driving scenarios and indoor low-light quadrotor flights, respectively.
+        Please note that the image is for illustration purposes only, the DEIO use the event data and IMU data as input.
+        The estimated trajectories are matched with the ground truth pose (GNSS-INS-RTK for driving, and VICON for flighting).
+        </div>
+        
+        <img src="https://kwanwaipang.github.io/DEIO/static/img/driving_testing.png" />
+        <img src="https://kwanwaipang.github.io/DEIO/static/img/flighting_testing.png" />
+
+        <h2 class="title is-3">Quantitative Comparison with SOTA Benchmark</h2>
+        </div>
+          
+      </div>      
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <img src="https://kwanwaipang.github.io/DEIO/static/img/davis240c.png"/>
+
+        <img src="https://kwanwaipang.github.io/DEIO/static/img/mono-hku.png"/>
+
+        <img src="https://kwanwaipang.github.io/DEIO/static/img/stereo-hku.png"/>
+
+        <img src="https://kwanwaipang.github.io/DEIO/static/img/vector.png"/>
+
+        <img src="https://kwanwaipang.github.io/DEIO/static/img/eds.png"/>
+
+      <!-- 最后四张图片按两列排列 -->
+        <div class="columns is-multiline">
+          <div class="column is-half">
+            <img src="https://kwanwaipang.github.io/DEIO/static/img/tum-vie.png" class="fixed-size-image" />
+          </div>
+          <div class="column is-half">
+            <img src="https://kwanwaipang.github.io/DEIO/static/img/uzh-fpv.png" class="fixed-size-image" />
+          </div>
+          <div class="column is-half">
+            <img src="https://kwanwaipang.github.io/DEIO/static/img/mvsec.png" class="fixed-size-image" />
+          </div>
+          <div class="column is-half">
+            <img src="https://kwanwaipang.github.io/DEIO/static/img/dsec.png" class="fixed-size-image" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+
+
+<!-- 引用格式 -->
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @article{GWPHKU:DEIO,
+        title={DEIO: Deep Event Inertial Odometry},
+        author={Guan, Weipeng and Lin, Fuling and Chen, Peiyu and Lu, Peng},
+        journal={arXiv preprint arXiv:2411.03928},
+        year={2024}
+      }
+    </code></pre>
+  </div>
+</section> -->
+
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            <br>
+            This website template is from <a
+            href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+            We sincerely thank the author for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
